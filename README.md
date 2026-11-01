@@ -1,5 +1,14 @@
 # URL Route — Omarchy Theme Sync
 
+## Store pages
+
+- [Firefox Add-ons (AMO)](https://addons.mozilla.org/en-US/firefox/addon/url-route-omarchy-theme-sync/)
+- [Thunderbird Add-ons (ATN)](https://addons.thunderbird.net/en-US/thunderbird/addon/url-route-omarchy-theme-sync/)
+
+The separately installed local companion is required on Linux with Omarchy and Python 3.11 or later.
+
+## Development and release notes
+
 The current store-review candidate synchronizes application theme colors with Omarchy on desktop Linux. It does **not** provide the legacy URL-copy/history/webhook functionality.
 
 **Do not submit or load the root `manifest.json`.** It belongs to the preserved, unreviewed legacy prototype. The reviewed theme-only sources are in `src/theme-sync/` and the release builder is `scripts/build_store_release.py`.
