@@ -8,4 +8,4 @@ Submission candidates, their source archive, the separate native companion and v
 
 The detailed review, privacy-policy draft, listing draft and publication checklist are maintained in the Obsidian vault notes named **URL Route - Store Submission Review**, **URL Route - Privacy Policy Draft** and **URL Route - Store Listing Draft**. Reproducible build and companion installation instructions are also included in the review archives.
 
-Author: **Guiestrela**. Main-code license: **MIT** (see `LICENSE`). The icon retains its upstream license notice. Nothing has been submitted to AMO or ATN; public support/contact details and the companion distribution location still need to be supplied.
+Author: **Guiestrela**. Main-code license: **MIT** (see `LICENSE`). The icon retains its upstream license notice. Support: **guilhermestrela@gmail.com**. GitHub: **guiestrela**. Repository and companion source: https://github.com/guiestrela/url-copy-fire. Nothing has been submitted to AMO or ATN; a packaged companion GitHub Release has not been published yet.

@@ -13,7 +13,9 @@ BUILD_NOTES = '''URL Route — Omarchy Theme Sync: source review package
 
 This candidate has not been published or approved by a store.
 Main code: MIT License, Copyright (c) 2026 Guiestrela.
-Public support/contact and companion distribution URL remain to be supplied.
+Support: guilhermestrela@gmail.com
+Repository and companion source: https://github.com/guiestrela/url-copy-fire
+GitHub account: guiestrela. No packaged GitHub Release has been published yet.
 The icon's third-party permission notice is included in icons/LICENSE-OMARCHY.txt.
 
 Build environment: Linux and Python 3.11 or later. No npm package, network
@@ -70,8 +72,9 @@ native messaging pipe. There is no browsing/email access, analytics or network
 connection. The extension does not send browser/email content to this helper.
 
 Author: Guiestrela. Main-code license: MIT; see the included LICENSE.
-Public support/contact and companion distribution location must still be
-completed by the owner before submitting this store-review candidate.
+Support: guilhermestrela@gmail.com
+Repository and companion source: https://github.com/guiestrela/url-copy-fire
+GitHub account: guiestrela. No packaged GitHub Release has been published yet.
 '''
 
 

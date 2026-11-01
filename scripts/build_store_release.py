@@ -42,6 +42,7 @@ def build():
             'name': 'URL Route — Omarchy Theme Sync',
             'version': VERSION,
             'author': 'Guiestrela',
+            'homepage_url': 'https://github.com/guiestrela/url-copy-fire',
             'description': 'Sync application colors with Omarchy on Linux. Requires the local companion.',
             'permissions': ['theme', 'nativeMessaging'],
             'background': {'scripts': ['target-config.js', 'theme-sync.js']},
