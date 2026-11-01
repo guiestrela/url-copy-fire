@@ -17,10 +17,18 @@ class StoreCompatibilityTests(unittest.TestCase):
         try:
             release.build()
             cls.manifests = {}
+            cls.configs = {}
+            cls.members = {}
             for app in ('firefox', 'thunderbird'):
-                filename = release.OUT / f'url-route-{app}-store-review-{release.VERSION}.xpi'
+                candidates = list(release.OUT.glob(f'url-route-{app}-store-review-*.xpi'))
+                if len(candidates) != 1:
+                    raise AssertionError(f'Expected one {app} package, got {candidates}')
+                filename = candidates[0]
                 with ZipFile(filename) as package:
                     cls.manifests[app] = json.loads(package.read('manifest.json'))
+                    config_source = package.read('target-config.js').decode()
+                    cls.configs[app] = json.loads(config_source.split('const URL_ROUTE_CONFIG = ', 1)[1].strip().removesuffix(';'))
+                    cls.members[app] = set(package.namelist())
         finally:
             release.OUT = cls.previous_out
 
@@ -37,6 +45,20 @@ class StoreCompatibilityTests(unittest.TestCase):
             gecko.get('strict_max_version'), '158.*',
             'ATN requires strict_max_version for Thunderbird theme experiments',
         )
+
+    def test_thunderbird_store_correction_uses_new_version(self):
+        self.assertEqual(self.manifests['thunderbird']['version'], '0.3.1')
+
+    def test_thunderbird_package_contains_target_specific_rendering(self):
+        self.assertEqual(self.configs['thunderbird']['target'], 'thunderbird')
+        self.assertTrue(self.configs['thunderbird']['semanticMappings'])
+        self.assertEqual(self.manifests['thunderbird']['manifest_version'], 2)
+        self.assertEqual(self.manifests['thunderbird']['theme_experiment']['colors']['omarchy_frame'], '--lwt-frame')
+        self.assertIn('semantic-overrides.css', self.members['thunderbird'])
+
+    def test_firefox_version_is_not_changed_by_thunderbird_correction(self):
+        self.assertEqual(self.manifests['firefox']['version'], '0.3.0')
+        self.assertEqual(self.configs['firefox']['target'], 'firefox')
 
     def test_firefox_does_not_inherit_thunderbird_branch_limit(self):
         manifest = self.manifests['firefox']

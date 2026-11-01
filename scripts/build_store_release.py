@@ -7,7 +7,8 @@ from zipfile import ZipFile, ZipInfo, ZIP_DEFLATED
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'build/store-release'
-VERSION = '0.3.0'
+VERSION = '0.3.1'
+APP_VERSIONS = {'firefox': '0.3.0', 'thunderbird': VERSION}
 EXTENSION_ID = 'url-route-omarchy-sync@local.invalid'
 SIZES = (16, 32, 48, 96, 128)
 
@@ -40,7 +41,7 @@ def build():
         manifest = {
             'manifest_version': 3 if is_firefox else 2,
             'name': 'URL Route — Omarchy Theme Sync',
-            'version': VERSION,
+            'version': APP_VERSIONS[app],
             'author': 'Guiestrela',
             'homepage_url': 'https://github.com/guiestrela/url-copy-fire',
             'description': 'Sync application colors with Omarchy on Linux. Requires the local companion.',
@@ -102,7 +103,7 @@ def build():
             target = destination / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(content)
-        package = OUT / f'url-route-{app}-store-review-{VERSION}.xpi'
+        package = OUT / f'url-route-{app}-store-review-{APP_VERSIONS[app]}.xpi'
         hashes[package.name] = archive(package, files)
         print('BUILT', package)
     (OUT / 'SHA256SUMS.txt').write_text(''.join(

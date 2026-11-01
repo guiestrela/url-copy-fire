@@ -7,7 +7,7 @@ import subprocess
 import sys
 from zipfile import ZipFile
 
-from build_store_release import ROOT, OUT, VERSION, archive, build
+from build_store_release import ROOT, OUT, VERSION, APP_VERSIONS, archive, build
 
 BUILD_NOTES = '''URL Route — Omarchy Theme Sync: source review package
 
@@ -122,10 +122,11 @@ def main():
     }
     companion_zip = OUT / f'url-route-native-companion-{VERSION}.zip'
     archive(companion_zip, companion)
-    expected = {
-        p.name: hashlib.sha256(p.read_bytes()).hexdigest()
-        for p in OUT.glob(f'*-store-review-{VERSION}.xpi')
-    }
+    candidates = [
+        OUT / f'url-route-{app}-store-review-{version}.xpi'
+        for app, version in APP_VERSIONS.items()
+    ]
+    expected = {p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in candidates}
     with tempfile.TemporaryDirectory() as tmp:
         with ZipFile(source_zip) as package:
             package.extractall(tmp)
