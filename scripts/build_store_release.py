@@ -63,6 +63,8 @@ def build():
                 'required': ['none'],
             }
         else:
+            # ATN requires a bounded compatibility range for theme experiments.
+            manifest['browser_specific_settings']['gecko']['strict_max_version'] = '158.*'
             manifest['background']['persistent'] = True
             manifest['theme_experiment'] = {
                 'colors': {

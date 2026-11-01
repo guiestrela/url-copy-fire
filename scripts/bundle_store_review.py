@@ -13,6 +13,7 @@ BUILD_NOTES = '''URL Route — Omarchy Theme Sync: source review package
 
 This candidate has not been published or approved by a store.
 Main code: MIT License, Copyright (c) 2026 Guiestrela.
+Compatibility: Firefox 158.0+; Thunderbird 158.0 through 158.* only.
 Support: guilhermestrela@gmail.com
 Repository and companion source: https://github.com/guiestrela/url-copy-fire
 GitHub account: guiestrela. No packaged GitHub Release has been published yet.
@@ -42,6 +43,7 @@ No browsing, email, contacts or credentials are required to review functionality
 
 Optional regression tests:
   node scripts/test_store_background.cjs
+  python3 scripts/test_store_compatibility.py
   python3 scripts/test_omarchy_theme_host.py
   python3 scripts/test_thunderbird_semantic_palette.py
   python3 scripts/test_native_host_installer.py
@@ -85,6 +87,7 @@ def source_inputs():
         'scripts/install_omarchy_theme_host.py', 'scripts/omarchy_theme_host.py',
         'scripts/thunderbird_semantic_map.json',
         'scripts/thunderbird_semantic_overrides.css',
+        'scripts/test_store_compatibility.py',
         'scripts/test_native_host_installer.py',
         'scripts/test_omarchy_theme_host.py',
         'scripts/test_thunderbird_semantic_palette.py',
