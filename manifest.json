@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "URL Route - Action Router & Theme",
+  "short_name": "URL Route",
+  "version": "0.1.1",
+  "description": "Firefox/Thunderbird extension: routes copy URL / copy title actions, adapts to the system theme, keeps local copy history, and hands results to a Team Leader bot.",
+  "icons": {"48": "icons/icon48.png", "96": "icons/icon96.png"},
+  "permissions": ["activeTab", "scripting", "clipboardWrite", "storage", "contextMenus"],
+  "host_permissions": ["http://localhost:8007/*"],
+  "background": {"service_worker": "src/background/background.js"},
+  "action": {"default_title": "URL Route - Action Router & Theme", "default_popup": "src/popup/popup.html", "default_icon": {"48": "icons/icon48.png", "96": "icons/icon96.png"}},
+  "content_scripts": [{"matches": ["<all_urls>"], "js": ["src/content/content.js"], "css": ["src/styles/theme.css"], "run_at": "document_idle"}],
+  "options_page": "src/options/options.html",
+  "web_accessible_resources": {"resources": ["src/styles/theme.css", "icons/icon48.png", "icons/icon96.png"], "matches": ["<all_urls>"]}
+}

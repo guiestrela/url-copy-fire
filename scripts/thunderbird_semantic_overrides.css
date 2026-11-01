@@ -1,0 +1,46 @@
+/* Theme-scoped component overrides; leave native high-contrast rendering intact. */
+@media not (prefers-contrast) {
+  notification-message[type="warning"] {
+    --message-bar-background-color: var(--url-route-warning-bg) !important;
+    --message-bar-text-color: var(--url-route-warning-text) !important;
+    --message-bar-icon-color: var(--url-route-warning-text) !important;
+    --icon-color-warning: var(--url-route-warning-text) !important;
+  }
+
+  notification-message:is([type="error"], [type="critical"]) {
+    --message-bar-background-color: var(--url-route-error-bg) !important;
+    --message-bar-text-color: var(--url-route-error-text) !important;
+    --message-bar-icon-color: var(--url-route-error-text) !important;
+    --icon-color-critical: var(--url-route-error-text) !important;
+  }
+
+  #folderTree .new-icon {
+    fill: var(--url-route-marker-warning);
+    stroke: var(--url-route-marker-warning-stroke);
+  }
+
+  #threadTree tr[data-properties~="new"] .subject-line img {
+    fill: var(--url-route-marker-warning) !important;
+    stroke: var(--url-route-marker-warning-stroke) !important;
+  }
+
+  #threadTree[rows="thread-card"] .card-layout[data-properties~="unread"] {
+    --read-status-fill: var(--url-route-marker-success);
+    --read-status-stroke: var(--url-route-marker-success);
+  }
+
+  #threadTree[rows="thread-card"] .card-layout[data-properties~="unread"][data-properties~="new"] {
+    --read-status-fill: var(--url-route-marker-warning);
+    --read-status-stroke: var(--url-route-marker-warning-stroke);
+  }
+
+  #threadTree[rows="thread-card"] .card-layout[data-properties~="hasUnread"] button.twisty::before {
+    fill: var(--url-route-marker-success);
+    stroke: var(--url-route-marker-success);
+  }
+
+  #threadTree[rows="thread-card"] .card-layout[data-properties~="hasUnread"][data-properties~="hasNew"] button.twisty::before {
+    fill: var(--url-route-marker-warning);
+    stroke: var(--url-route-marker-warning-stroke);
+  }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="color-scheme" content="light dark"><link rel="stylesheet" href="popup.css"><title>URL Route - Popup</title></head>
+<body>
+  <div class="top">
+    <img src="../../icons/icon48.png" alt="logo" class="logo">
+    <div><h1>URL Route</h1><div class="sub" id="theme-badge">Detecting theme...</div></div>
+  </div>
+  <div class="card">
+    <h2>📋 URL / Título</h2>
+    <div class="field"><label for="url">URL</label><input id="url" readonly placeholder="https://example.com"></div>
+    <div class="field"><label for="title">Title</label><input id="title" readonly placeholder="Page title"></div>
+  </div>
+  <div class="actions">
+    <button class="btn primary" data-act="copy-url">📋 Copiar URL</button>
+    <button class="btn" data-act="copy-title">📋 Copiar Título</button>
+    <button class="btn" data-act="copy-url-title">📋 Copiar URL + Título</button>
+    <div style="display:flex;gap:6px;margin-top:8px">
+      <label class="theme-row"><span>Tema:</span>
+        <select id="theme-mode" class="btn theme-tgl" style="flex:1;padding:6px 8px">
+          <option value="auto">⚙️ Auto</option><option value="light">☀️ Light</option><option value="dark">🌙 Dark</option>
+        </select>
+      </label>
+    </div>
+    <div class="theme-row" style="margin-top:8px"><span class="theme-label">Badge:</span><span id="theme-badge"></span></div>
+    <button class="btn" data-act="share" style="background:#7c3aed;color:#fff">📤 Compartilhar para o Team Leader</button>
+    <button class="btn" data-act="open-options" style="font-size:12px">⚙️ Options</button>
+  </div>
+  <div class="card">
+    <h2>📜 Histórico</h2>
+    <ul id="history-list" class="history-list"></ul>
+    <div class="empty" id="history-empty">Nenhum registro.</div>
+    <button class="link" id="clear-history">Limpar histórico</button>
+  </div>
+  <p class="hint">Copy + save to clipboard • history in <code>storage.local</code></p>
+  <script src="popup.js"></script>
+</body>
+</html>

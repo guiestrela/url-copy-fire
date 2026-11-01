@@ -1,0 +1,26 @@
+/**
+ * src/styles/router-ui.css - floating router widget styles
+ */
+#urlroute-widget {
+  position: fixed; right: 14px; bottom: 14px; z-index: 2147483647;
+  width: 240px; max-width: calc(100vw - 28px); font: 13px/1.3 system-ui, -apple-system, sans-serif;
+  color: var(--url-route-fg); background: var(--url-route-bg);
+  border: 1px solid var(--url-route-border); border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+#urlroute-node .urlroute-handle {
+  display:flex; justify-content:space-between; align-items:center; padding:10px 14px;
+  background: var(--url-route-bg); border-bottom:1px solid var(--url-route-border); gap:8px;
+}
+#urlroute-node .urlroute-handle span { font-weight:700; color:var(--url-route-fg); }
+#urlroute-node .urlroute-close { cursor:pointer; padding:2px 8px; border-radius:6px; color:var(--url-route-border); font-size:13px; }
+#urlroute-node .urlroute-close:hover { background:#e2e8f0; color:#0f172a; }
+#urlroute-node .urlroute-rows { display:flex; flex-direction:column; gap:6px; padding:10px; }
+#urlroute-node .urlroute-row {
+  width:100%; padding:10px 12px; border:none; border-radius:10px; cursor:pointer;
+  background:var(--url-route-bg); color:var(--url-route-fg);
+}
+#urlroute-node .urlroute-row:hover { filter: brightness(.96); }
+#urlroute-node .urlroute-color { display:flex; align-items:center; gap:8px; padding:10px 14px; border-top:1px solid var(--url-route-border); }
+#urlroute-node .urlroute-dot { width:10px; height:10px; border-radius:50%; background:var(--url-route-accent); }
+#urlroute-node .urlroute-setting { flex:1; background:none; border:none; color:var(--url-route-fg); cursor:pointer; font:inherit; }

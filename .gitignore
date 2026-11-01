@@ -1,0 +1,16 @@
+# dependencies
+.venv/
+__pycache__/
+*.pyc
+
+# runtime state
+.bot_relay/
+data/
+
+# build artifacts
+build/
+dist/
+
+# secrets (none in project)
+*.key
+*.pem

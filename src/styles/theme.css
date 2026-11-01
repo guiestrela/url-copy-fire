@@ -1,0 +1,19 @@
+/**
+ * src/styles/theme.css
+ * CSS custom properties + color-scheme for light/dark.
+ */
+:root {
+  --url-route-accent: #2563eb;
+  --url-route-bg: #f6f6f6;
+  --url-route-fg: #1a1a1a;
+  --url-route-border: #cbd5e1;
+}
+:root.urlroute-dark {
+  --url-route-accent: #60a5fa;
+  --url-route-bg: #141414;
+  --url-route-fg: #f2f2f2;
+  --url-route-border: #4b5563;
+}
+:root { color-scheme: light dark; }
+:root .urlroute-light { color-scheme: light; }
+:root .urlroute-dark { color-scheme: dark; }
